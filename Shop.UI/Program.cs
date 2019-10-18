@@ -38,12 +38,31 @@ namespace Shop.UI
         ImagePath = "C:/data",
       };
 
+      Item item = new Item
+      {
+        Name = "Phone",
+        ImagePath = "C:/data",
+        Price = 50000,
+        Description = "Мощный телефон",
+        CategoryId = category.Id
+      };
+
+      User user = new User
+      {
+        Name = "Bekzat",
+        Surname = "Toleutai",
+        PhoneNumber = "+77774213007",
+        Email = "toleutaib@gmail.com",
+        Address = "Ильинка",
+        Password = "samiykrutoiparol666789",
+        VerificationCode = "548724"
+      };
+
       using (var context = new ShopContext(connectionString))
       {
         context.Categories.Add(category);
-        context.SaveChanges();
-        context.Categories.Remove(category);
-
+        context.Items.Add(item);
+        context.Users.Add(user);
         context.SaveChanges();
       }
     }
